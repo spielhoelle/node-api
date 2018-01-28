@@ -23,12 +23,14 @@ var port = process.env.PORT || 8080;        // set our port
 // =============================================================================
 var Bear     = require('./models/bear');
 const router = require('express').Router();
-var broutes     = require('./routes/bears')(router);
+var index_routes     = require('./routes/index')(router);
+var bear_routes     = require('./routes/bears')(router);
 
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', broutes);
+app.use('/api', index_routes);
+app.use('/api', bear_routes);
 
 // START THE SERVER
 // =============================================================================
